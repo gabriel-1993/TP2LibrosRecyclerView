@@ -68,7 +68,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void validarYbuscarLibro(String textoIngresado) {
         // Validar que el texto ingresado no esté vacío
         if (textoIngresado.trim().isEmpty()) {
-            mMensaje.setValue("Título vacío, puede filtrar por el Título o por Letras Ingresadas...");
+            mMensaje.setValue("Título vacío, puede filtrar por el Título...");
         } else {
             for (Libro libro : libros) {
                 // Comparar sin considerar mayúsculas y minúsculas
@@ -82,6 +82,7 @@ public class MainActivityViewModel extends AndroidViewModel {
                     getApplication().startActivity(intent);
                    /*limpiar*/
                     mMensaje.setValue("");
+                    return;
 
                 }else{
                     mMensaje.setValue("El Libro no existe en nuestra base.");
